@@ -20,7 +20,7 @@
 #include <TSystem.h>
 
 #define DEBUG (0)
-#include <PlotTools.h>
+#include "PlotTools.h"
 
 using namespace std;
 
@@ -129,8 +129,8 @@ double eta_bins_more[21] = {
 // rootbq 'drawBDTFrac.C("v30", "DY PU200", "PU200-DYToLL_M50", "")'
 
 void drawBDTFrac(
-  TString ver = "v30", TString SAMPLE = "DY PU200", TString tag = "PU200-DYToLL_M50",
-  TString eff_tag = "L3pt0", bool isLogy = true  // HERE
+  TString ver = "v00", TString SAMPLE = "DY PU200", TString tag = "PU200-DYToLL_M50",
+  TString eff_tag = "L3pt8", bool isLogy = true  // HERE
 ) {
   TStopwatch timer_total;
   timer_total.Start();
@@ -138,7 +138,7 @@ void drawBDTFrac(
   gStyle->SetPalette(kRainBow);
   TH1::SetDefaultSumw2(kTRUE);
 
-  TString Dir = "./plots_BDTFrac_"+ver+"/"+tag+"/";
+  TString Dir = "../plots_BDTFrac_"+ver+"/"+tag+"/";
   if (gSystem->mkdir(Dir,kTRUE) != -1)
     gSystem->mkdir(Dir,kTRUE);
 
@@ -314,6 +314,7 @@ void drawBDTFrac(
     c->Modified();  c->Update();  c->RedrawAxis();
     gROOT->ProcessLine( "gErrorIgnoreLevel = 2001;");
     c->SaveAs(Dir+canvasName+logy_tag+".pdf","pdf");
+    c->SaveAs(Dir+canvasName+logy_tag+".png","png");
     gROOT->ProcessLine( "gErrorIgnoreLevel = kPrint;");
 
     c->Close();

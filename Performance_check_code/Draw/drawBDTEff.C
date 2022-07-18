@@ -20,7 +20,7 @@
 #include <TSystem.h>
 
 #define DEBUG (0)
-#include <PlotTools.h>
+#include "PlotTools.h"
 
 using namespace std;
 
@@ -129,8 +129,8 @@ double eta_bins_more[21] = {
 // rootbq 'drawBDTEff.C("v30", "DY PU200", "PU200-DYToLL_M50", "")'
 
 void drawBDTEff(
-  TString ver = "v30", TString SAMPLE = "DY PU200", TString tag = "PU200-DYToLL_M50",
-  TString eff_tag = "L3Iter2FromL1", bool isLogy = false  // HERE
+  TString ver = "v00", TString SAMPLE = "DY PU200", TString tag = "PU200-DYToLL_M50",
+  TString eff_tag = "L3IOFromL1", bool isLogy = false  // HERE
 ) {
   TStopwatch timer_total;
   timer_total.Start();
@@ -138,7 +138,7 @@ void drawBDTEff(
   gStyle->SetPalette(kRainBow);
   TH1::SetDefaultSumw2(kTRUE);
 
-  TString Dir = "./plots_BDTEff_"+ver+"/"+tag+"/";
+  TString Dir = "../plots_BDTEff_"+ver+"/"+tag+"/";
   if (gSystem->mkdir(Dir,kTRUE) != -1)
     gSystem->mkdir(Dir,kTRUE);
 
@@ -195,6 +195,8 @@ void drawBDTEff(
 
   vector<TString> types_file = {
     TString::Format("../Outputs_%s/hist-%s-%s_No-BDT.root", ver.Data(), ver.Data(), tag.Data()),
+    //TString::Format("../Outputs_%s/hist-%s-%s-BDT.root", ver.Data(), ver.Data(), tag.Data()),
+    //TString::Format("../Outputs_v07/hist-v07-TEST_10files-BDT.root"),
     TString::Format("../Outputs_%s/hist-%s-%s_sort100-BDT.root", ver.Data(), ver.Data(), tag.Data()),
     TString::Format("../Outputs_%s/hist-%s-%s_sort50-BDT.root", ver.Data(), ver.Data(), tag.Data()),
     TString::Format("../Outputs_%s/hist-%s-%s_sort10-BDT.root", ver.Data(), ver.Data(), tag.Data()),
@@ -202,7 +204,7 @@ void drawBDTEff(
   };
 
   vector<TString> types_str = {
-    "Unlimited (average # of seeds per event = 228)",
+    "Unlimited",
     "Maximum # of seeds = 100",
     "Maximum # of seeds = 50",
     "Maximum # of seeds = 10",
@@ -257,8 +259,12 @@ void drawBDTEff(
         num_name = num_name.ReplaceAll("genpt26", "L3pt24");
       }
 
+      //std::cout << "Filename : " << fileName << " , den_name : " << den_name << std::endl;
       TH1F* den = Get_Hist( fileName, den_name );
+      //std::cout << "Den filled" << std::endl;
+      //std::cout << "Filename : " << fileName << " , num_name : " << num_name << std::endl;
       TH1F* num = Get_Hist( fileName, num_name );
+      //std::cout << "Num filled" << std::endl;
 
       if(v_var.at(ivar) == "pt") {
         den = (TH1F*)den->Rebin(n_pt_bins, den_name+"_rb", pt_bins);
@@ -329,6 +335,7 @@ void drawBDTEff(
     c->Modified();  c->Update();  c->RedrawAxis();
     gROOT->ProcessLine( "gErrorIgnoreLevel = 2001;");
     c->SaveAs(Dir+canvasName+logy_tag+".pdf","pdf");
+    c->SaveAs(Dir+canvasName+logy_tag+".png","png");
     gROOT->ProcessLine( "gErrorIgnoreLevel = kPrint;");
 
     c->Close();

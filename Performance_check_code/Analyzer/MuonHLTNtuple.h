@@ -269,6 +269,11 @@ public:
     vector<Object> get_hltIter2IterL3();
     vector<Object> get_hltIter0IterL3FromL1Muon();
     vector<Object> get_hltIter2IterL3FromL1Muon();
+
+    //
+    vector<Object> get_hltIter2IterL3FromL1MuonTrack();
+    //
+
     vector<Object> get_hltIterL3IOFromL1();
     vector<Object> get_hltIterL3MuonsNoID();
     vector<Object> get_hltIterL3Muons();
@@ -4243,45 +4248,45 @@ vector<Object> MuonHLTNtuple::get_hltPhase2L3Muons()
         obj.addVar( "mva3", hltPhase2L3Muons_mva3->at(i) );
 
         // -- Isolation
-        obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
-        obj.addVar( "pfEcalIsodR0p3dRVeto0p000", hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000->at(i) );
-        obj.addVar( "pfHcalIsodR0p3dRVeto0p000", hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000->at(i) );
-        obj.addVar( "pfEcalIsodR0p3dRVeto0p030", hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030->at(i) );
-        obj.addVar( "pfHcalIsodR0p3dRVeto0p030", hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030->at(i) );
-        obj.addVar( "pfEcalIsodR0p3dRVeto0p050", hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050->at(i) );
-        obj.addVar( "pfHcalIsodR0p3dRVeto0p050", hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00->at(i) );
-        obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0->at(i) );
+        //obj.addVar( "pfEcalIsodR0p3dRVeto0p000", hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000->at(i) );
+        //obj.addVar( "pfHcalIsodR0p3dRVeto0p000", hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000->at(i) );
+        //obj.addVar( "pfEcalIsodR0p3dRVeto0p030", hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030->at(i) );
+        //obj.addVar( "pfHcalIsodR0p3dRVeto0p030", hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030->at(i) );
+        //obj.addVar( "pfEcalIsodR0p3dRVeto0p050", hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050->at(i) );
+        //obj.addVar( "pfHcalIsodR0p3dRVeto0p050", hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00->at(i) );
+        //obj.addVar( "pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00", hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00->at(i) );
 
         out.push_back(obj);
     }
@@ -4754,6 +4759,48 @@ vector<Object> MuonHLTNtuple::get_hltIter2IterL3FromL1Muon()
         obj.addVar( "mva3", hltIter2IterL3FromL1Muon_mva3->at(i) );
 
         out.push_back(obj);
+    }
+
+    return out;
+}
+
+vector<Object> MuonHLTNtuple::get_hltIter2IterL3FromL1MuonTrack()
+{
+    vector<Object> out = {};
+    if(hltIter2IterL3FromL1MuonTrack_pt == 0 || hltIter2IterL3FromL1MuonTrack_pt == nullptr)
+        return out;
+    
+    for(unsigned i=0; i<hltIter2IterL3FromL1MuonTrack_pt->size(); ++i) {
+        Object obj = Object( hltIter2IterL3FromL1MuonTrack_pt->at(i), hltIter2IterL3FromL1MuonTrack_eta->at(i), hltIter2IterL3FromL1MuonTrack_phi->at(i) );
+
+        obj.addVar( "pt", hltIter2IterL3FromL1MuonTrack_pt->at(i) );
+        obj.addVar( "ptError", hltIter2IterL3FromL1MuonTrack_ptError->at(i) );
+        obj.addVar( "eta", hltIter2IterL3FromL1MuonTrack_eta->at(i) );
+        obj.addVar( "phi", hltIter2IterL3FromL1MuonTrack_phi->at(i) );
+        obj.addVar( "charge", hltIter2IterL3FromL1MuonTrack_charge->at(i) );
+        obj.addVar( "matchedL3", hltIter2IterL3FromL1MuonTrack_matchedL3->at(i) );
+        obj.addVar( "matchedL3NoId", hltIter2IterL3FromL1MuonTrack_matchedL3NoId->at(i) );
+        obj.addVar( "bestMatchTP_charge", hltIter2IterL3FromL1MuonTrack_bestMatchTP_charge->at(i) );
+        obj.addVar( "bestMatchTP_pdgId", hltIter2IterL3FromL1MuonTrack_bestMatchTP_pdgId->at(i) );
+        obj.addVar( "bestMatchTP_energy", hltIter2IterL3FromL1MuonTrack_bestMatchTP_energy->at(i) );
+        obj.addVar( "bestMatchTP_pt", hltIter2IterL3FromL1MuonTrack_bestMatchTP_pt->at(i) );
+        obj.addVar( "bestMatchTP_eta", hltIter2IterL3FromL1MuonTrack_bestMatchTP_eta->at(i) );
+        obj.addVar( "bestMatchTP_phi", hltIter2IterL3FromL1MuonTrack_bestMatchTP_phi->at(i) );
+        obj.addVar( "bestMatchTP_parentVx", hltIter2IterL3FromL1MuonTrack_bestMatchTP_parentVx->at(i) );
+        obj.addVar( "bestMatchTP_parentVy", hltIter2IterL3FromL1MuonTrack_bestMatchTP_parentVy->at(i) );
+        obj.addVar( "bestMatchTP_parentVz", hltIter2IterL3FromL1MuonTrack_bestMatchTP_parentVz->at(i) );
+        obj.addVar( "bestMatchTP_status", hltIter2IterL3FromL1MuonTrack_bestMatchTP_status->at(i) );
+        obj.addVar( "bestMatchTP_numberOfHits", hltIter2IterL3FromL1MuonTrack_bestMatchTP_numberOfHits->at(i) );
+        obj.addVar( "bestMatchTP_numberOfTrackerHits", hltIter2IterL3FromL1MuonTrack_bestMatchTP_numberOfTrackerHits->at(i) );
+        obj.addVar( "bestMatchTP_numberOfTrackerLayers", hltIter2IterL3FromL1MuonTrack_bestMatchTP_numberOfTrackerLayers->at(i) );
+        obj.addVar( "bestMatchTP_sharedFraction", hltIter2IterL3FromL1MuonTrack_bestMatchTP_sharedFraction->at(i) );
+        obj.addVar( "matchedTPsize", hltIter2IterL3FromL1MuonTrack_matchedTPsize->at(i) );
+        obj.addVar( "mva0", hltIter2IterL3FromL1MuonTrack_mva0->at(i) );
+        obj.addVar( "mva1", hltIter2IterL3FromL1MuonTrack_mva1->at(i) );
+        obj.addVar( "mva2", hltIter2IterL3FromL1MuonTrack_mva2->at(i) );
+        obj.addVar( "mva3", hltIter2IterL3FromL1MuonTrack_mva3->at(i) );
+
+        out.push_back( obj );
     }
 
     return out;
@@ -7674,45 +7721,45 @@ void MuonHLTNtuple::Init(TChain *tree)
             fChain->SetBranchAddress("hltPhase2L3Muons_mva3", &hltPhase2L3Muons_mva3, &b_hltPhase2L3Muons_mva3);
 
             // -- Isolation
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000", &hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000, &b_hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000", &hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000, &b_hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030", &hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030, &b_hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030", &hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030, &b_hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050", &hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050, &b_hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050", &hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050, &b_hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00);
-            fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p10dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p20dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p10ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionaldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoFulldR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoRegionalNewdR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0", &hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0, &b_hltPhase2L3Muons_trkIsoOfflinedR0p3dRVeto0p005dz0p25dr0p20ChisqInfPtMin0p0);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000", &hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000, &b_hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p000);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000", &hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000, &b_hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p000);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030", &hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030, &b_hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p030);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030", &hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030, &b_hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p030);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050", &hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050, &b_hltPhase2L3Muons_pfEcalIsodR0p3dRVeto0p050);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050", &hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050, &b_hltPhase2L3Muons_pfHcalIsodR0p3dRVeto0p050);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p00minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p02minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p00dRVetoHad0p04minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p00minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p02minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p02dRVetoHad0p04minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p00minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p02minEEM0p00minEHad0p00);
+            //fChain->SetBranchAddress("hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00", &hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00, &b_hltPhase2L3Muons_pfHgcalLCIsodR0p2dRVetoEM0p04dRVetoHad0p04minEEM0p00minEHad0p00);
 
             fChain->SetBranchAddress("ntpTo_hltPhase2L3Muons", &ntpTo_hltPhase2L3Muons, &b_ntpTo_hltPhase2L3Muons);
             fChain->SetBranchAddress("tpTo_hltPhase2L3Muons_charge", &tpTo_hltPhase2L3Muons_charge, &b_tpTo_hltPhase2L3Muons_charge);

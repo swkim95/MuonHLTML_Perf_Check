@@ -5,6 +5,7 @@
 #include <TH2F.h>
 #include <TH1D.h>
 #include <TH2D.h>
+#include <TH3D.h>
 #include <TProfile.h>
 #include <TColor.h>
 #include <TLegend.h>
@@ -15,6 +16,7 @@
 #include <TPad.h>
 #include <TF1.h>
 #include <TGraphAsymmErrors.h>
+#include <TStyle.h>
 #include "Math/SpecFunc.h"
 #include "Math/DistFunc.h"
 

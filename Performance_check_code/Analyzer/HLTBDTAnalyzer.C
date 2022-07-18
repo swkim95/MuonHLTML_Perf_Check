@@ -23,6 +23,8 @@
 
 #include "MuonHLTNtuple.h"
 
+#define getName(var) #var
+
 using namespace std;
 
 
@@ -289,7 +291,10 @@ void HLTBDTAnalyzer(
         TString fileName = TString::Format( "hist-%s-%s", ver.Data(), tag.Data() );
         if(PU_min >= 0.) fileName = fileName + TString::Format("-PU%.0fto%.0f", PU_min, PU_max);
         if(JobId != "")  fileName = fileName + TString::Format("--%s", JobId.Data());
-        TFile *f_output = TFile::Open(fileName+"-BDT.root", "RECREATE");
+        TString outputDir = TString::Format("../Outputs_%s/", ver.Data());
+        if (gSystem->mkdir(outputDir, kTRUE) != -1) gSystem->mkdir(outputDir,kTRUE);
+        //TFile *f_output = TFile::Open(fileName + "-BDT.root", "RECREATE");
+        TFile *f_output = TFile::Open(outputDir + fileName + "-BDT.root", "RECREATE");
 
     // -- Event chain
         TChain *_chain_Ev          = new TChain("ntupler/ntuple");
@@ -520,7 +525,7 @@ void HLTBDTAnalyzer(
             vector<Object> hltL3crIsoL1TkSingleMu22L3f24QL3trkIsoRegionalNewFiltered0p07EcalHcalHgcalTrk = nt->get_HLTObjects( "hltL3crIsoL1TkSingleMu22L3f24QL3trkIsoRegionalNewFiltered0p07EcalHcalHgcalTrk::MYHLT" );
 
             vector<Object> hltIter2IterL3FromL1MuonTrack = nt->get_hltIter2IterL3FromL1MuonTrack();
-
+            
             vector<Object> theL1Muons_pt22 = {};
             for(auto& l1mu: L1TkMuons) {
                 if(l1mu.pt > 22.0) {
@@ -545,6 +550,13 @@ void HLTBDTAnalyzer(
                 &hltL3crIsoL1TkSingleMu22L3f24QL3pfhgcalIsoFiltered4p70,
                 &hltL3crIsoL1TkSingleMu22L3f24QL3trkIsoRegionalNewFiltered0p07EcalHcalHgcalTrk
             };
+
+            // DEBUG >> Print out objects per evt loop //
+            //for (auto & obj : hltIter2IterL3FromL1MuonTrack) {
+            //    std::cout << "Evt num     : " << i_ev << std::endl;
+            //    std::cout << "Obj content : " << std ::endl;
+            //    obj.print();
+            //}
 
         for(unsigned i=0; i<L3types.size(); ++i) {
             vector<Object>* L3Coll = L3MuonColls.at(i);

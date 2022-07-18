@@ -20,7 +20,7 @@
 #include <TSystem.h>
 
 #define DEBUG (0)
-#include <PlotTools.h>
+#include "PlotTools.h"
 
 using namespace std;
 
@@ -138,7 +138,7 @@ void drawBDTEffFull(
   gStyle->SetPalette(kRainBow);
   TH1::SetDefaultSumw2(kTRUE);
 
-  TString Dir = "./plots_BDTEffFull_"+ver+"/"+tag+"/";
+  TString Dir = "../plots_BDTEffFull_"+ver+"/"+tag+"/";
   if (gSystem->mkdir(Dir,kTRUE) != -1)
     gSystem->mkdir(Dir,kTRUE);
 
@@ -195,6 +195,7 @@ void drawBDTEffFull(
 
   vector<TString> types_file = {
     TString::Format("../Outputs_%s/hist-%s-%s_No-BDT.root", ver.Data(), ver.Data(), tag.Data()),
+    //TString::Format("../Outputs_%s/hist-%s-%s-BDT.root", ver.Data(), ver.Data(), tag.Data()),
     TString::Format("../Outputs_%s/hist-%s-%s_sort100-BDT.root", ver.Data(), ver.Data(), tag.Data()),
     TString::Format("../Outputs_%s/hist-%s-%s_sort50-BDT.root", ver.Data(), ver.Data(), tag.Data()),
     TString::Format("../Outputs_%s/hist-%s-%s_sort10-BDT.root", ver.Data(), ver.Data(), tag.Data()),
@@ -329,6 +330,7 @@ void drawBDTEffFull(
     c->Modified();  c->Update();  c->RedrawAxis();
     gROOT->ProcessLine( "gErrorIgnoreLevel = 2001;");
     c->SaveAs(Dir+canvasName+logy_tag+".pdf","pdf");
+    c->SaveAs(Dir+canvasName+logy_tag+".png","png");
     gROOT->ProcessLine( "gErrorIgnoreLevel = kPrint;");
 
     c->Close();
