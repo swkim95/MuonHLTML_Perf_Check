@@ -20,7 +20,7 @@
 #include <TSystem.h>
 
 #define DEBUG (0)
-#include <PlotTools.h>
+#include "PlotTools.h"
 #include "tdrstyle.C"
 #include "CMS_lumi.C"
 
@@ -79,12 +79,12 @@ static inline void loadBar(int x, int num, int r, int w)
 }
 
 // echo 'gROOT->LoadMacro("drawEfficiencyL3.C+"); gSystem->Exit(0);' | root -b -l
-// rootbq 'drawEfficiencyL3.C("v30", "DY PU200", "PU200-DYToLL_M50", "L1Tk")'
-// rootbq 'drawEfficiencyL3.C("v30", "DY PU200", "PU200-DYToLL_M50", "")'
+// rootbq 'drawEfficiencyL3.C("v03", "DY PU200", "PU200-DYToLL_M50", "L1Tk")'
+// rootbq 'drawEfficiencyL3.C("v03", "DY PU200", "PU200-DYToLL_M50", "")'
 
 void drawEfficiencyL3(
-  TString ver = "v30", TString SAMPLE = "DY PU200", TString tag = "PU200-DYToLL_M50",
-  TString eff_tag = "L1Tk", bool isLogy = false  // HERE
+  TString ver = "v03", TString SAMPLE = "t#bar{t} PU200", TString tag = "PU200-TTTo2L2Nu",
+  TString eff_tag = "", bool isLogy = false  // HERE
 ) {
   TStopwatch timer_total;
   timer_total.Start();
@@ -104,7 +104,7 @@ void drawEfficiencyL3(
     "p_{T}^{gen} > 26 GeV"
   };
 
-  TString fileName = TString::Format("../Outputs_%s/hist-%s-%s-Eff.root", ver.Data(), ver.Data(), tag.Data());
+  TString fileName = TString::Format("./hist-%s-%s-Eff.root", ver.Data(), tag.Data());
 
   vector<Color_t> v_color = {
     kGray+2,
@@ -128,12 +128,18 @@ void drawEfficiencyL3(
 
   vector<TString> types = {
     "Eff_L1Muon",
-    // "Eff_L2Muon"
     "Eff_L3OI",
     "Eff_L3IOFromL1",
-    "Eff_L3MuonNoId"
-    // "Eff_L3Muon"
-    // "Eff_L3Filter"
+    "Eff_L3MuonNoId",
+    "Eff_L3Muon",
+
+    // "Eff_L1Muon",
+    // // "Eff_L2Muon"
+    // "Eff_L3OI",
+    // "Eff_L3IOFromL1",
+    // "Eff_L3MuonNoId"
+    // // "Eff_L3Muon"
+    // // "Eff_L3Filter"
   };
 
   vector<TString> types_str = {
@@ -141,14 +147,16 @@ void drawEfficiencyL3(
     // "L2 muons from L1TkMuon"
     "Outside-in",
     "Inside-out",
-    "L3 muons"
+    "L3 muons",
+    "L3 muons + ID",
+
     // "L3 Muon passing ID / Gen muon"
     // "L3 Filter / Gen muon"
   };
 
   vector<TString> v_var = {"pt", "eta"};  // , "pu"};
   vector< vector<double> > range = {
-    {1, 24, 200},  // pt
+    {1, 24, 100},  // pt
     {1, -2.4, 2.4},  // eta
     {1, 200, 201}  // PU
   };
@@ -186,6 +194,8 @@ void drawEfficiencyL3(
       ymin = 0.8;
       ymax = 1.15;
     }
+    ymin = 0.0;
+    ymax = 1.55;
 
     for(int ipt=0; ipt<(int)pt_ranges.size(); ++ipt) {
       if(v_var[ivar]=="pt" && pt_ranges[ipt]=="genpt26")
@@ -217,7 +227,7 @@ void drawEfficiencyL3(
         }
 
         TString titleX = the_type.Contains("Eff_") ? GetTitleX(v_var[ivar]+"_gen") : GetTitleX(v_var[ivar]+"_gen").ReplaceAll("{gen}", "{HLT}");
-        TString titleY = eff_tag.Contains("L1Tk") ? "HLT reconstruction efficiency" : "L1+HLT efficiency";
+        TString titleY = eff_tag.Contains("L1Tk") ? "HLT reconstruction efficiency" : "L1 + HLT efficiency";
 
         TString den_name = TString::Format("Eff/den_%s_%s_%s", the_type.Data(), pt_ranges[ipt].Data(), v_var[ivar].Data() );
         TString num_name = TString::Format("Eff/num_%s_%s_%s", the_type.Data(), pt_ranges[ipt].Data(), v_var[ivar].Data() );
@@ -292,7 +302,7 @@ void drawEfficiencyL3(
 
       TLatex latex;
       // Latex_Simulation_14TeV( latex );
-      // latex.DrawLatexNDC( 0.45,0.96, "#scale[0.8]{#font[42]{"+SAMPLE+"}}");
+      latex.DrawLatexNDC( 0.45,0.96, "#scale[0.8]{#font[42]{"+SAMPLE+"}}");
       if(v_var[ivar] == "eta" || pt_ranges[ipt] != "pt0" )
         latex.DrawLatexNDC(0.65, 0.87, "#font[42]{#scale[0.8]{"+pt_ranges_s[ipt]+"}}");
 

@@ -289,10 +289,8 @@ void HLTEffAnalyzer(
         TString fileName = TString::Format( "hist-%s-%s", ver.Data(), tag.Data() );
         if(PU_min >= 0.) fileName = fileName + TString::Format("-PU%.0fto%.0f", PU_min, PU_max);
         if(JobId != "")  fileName = fileName + TString::Format("--%s", JobId.Data());
-        TString outputDir = TString::Format("../Outputs_%s/", ver.Data());
-        if (gSystem->mkdir(outputDir, kTRUE) != -1) gSystem->mkdir(outputDir,kTRUE);
         TFile *f_output = TFile::Open(fileName+"-Eff.root", "RECREATE");
-        
+
     // -- Event chain
         TChain *_chain_Ev          = new TChain("ntupler/ntuple");
         for(size_t f = 0; f<paths.size(); ++f) {
@@ -307,8 +305,8 @@ void HLTEffAnalyzer(
 
         bool isIterL3 = false;
         isIterL3 = false;
-        //if(_chain_Ev->GetListOfBranches()->FindObject( "hltIterL3Muons_pt" ))
-        //    isIterL3 = true;
+        if(_chain_Ev->GetListOfBranches()->FindObject( "hltIterL3Muons_pt" ))
+            isIterL3 = true;
 
         vector<TString> branch_tags_L3FromL1TkMuon = {
             "genParticle",
@@ -319,8 +317,7 @@ void HLTEffAnalyzer(
             "hltPhase2L3IOFromL1",
             "hltPhase2L3MuonsNoID",
             "hltPhase2L3Muons",
-            "L3Muons", // inner
-            "hltIter2IterL3FromL1MuonTrack"
+            "L3Muons" // inner
         };
 
         vector<TString> branch_tags_IterL3 = {
@@ -376,10 +373,10 @@ void HLTEffAnalyzer(
             "hltL3crIsoL1TkSingleMu22L3f24QL3pfhcalIsoFiltered0p40",
             "hltL3crIsoL1TkSingleMu22L3f24QL3pfhgcalIsoFiltered4p70",
             "hltL3crIsoL1TkSingleMu22L3f24QL3trkIsoRegionalNewFiltered0p07EcalHcalHgcalTrk",
-            "hltL1TkDoubleMuFiltered7",
-            "hltL3fL1DoubleMu155fPreFiltered8",
-            "hltDiMuon178RelTrkIsoFiltered0p4",
-            "hltDiMuon178RelTrkIsoFiltered0p4DzFiltered0p2"
+            // "hltL1TkDoubleMuFiltered7",
+            // "hltL3fL1DoubleMu155fPreFiltered8",
+            // "hltDiMuon178RelTrkIsoFiltered0p4",
+            // "hltDiMuon178RelTrkIsoFiltered0p4DzFiltered0p2"
         };
 
         vector<TString> L3types_IterL3 = {
@@ -446,6 +443,7 @@ void HLTEffAnalyzer(
             }
 
         // -- Isolations
+            /*
             double iso_L3pt_min = 24.0;
             double iso_genpt_min = 26.0;
 
@@ -562,6 +560,7 @@ void HLTEffAnalyzer(
                     }
                 }
             }
+            */
 
     // -- Event loop
     for(unsigned i_ev=0; i_ev<nEvent; i_ev++) {
@@ -637,8 +636,6 @@ void HLTEffAnalyzer(
             vector<Object> iterL3IOFromL1       = nt->get_iterL3IOFromL1();
             vector<Object> iterL3MuonNoID       = nt->get_iterL3MuonNoID();
             vector<Object> iterL3Muon           = nt->get_iterL3Muon();
-            vector<Object> hltIter2IterL3FromL1MuonTrack = nt->get_hltIter2IterL3FromL1MuonTrack();
-
 
             vector<Object> hltL1TkSingleMuFiltered22 = nt->get_HLTObjects( "hltL1TkSingleMuFiltered22::MYHLT" );
             vector<Object> hltL3fL1TkSingleMu22L3Filtered50Q = nt->get_HLTObjects( "hltL3fL1TkSingleMu22L3Filtered50Q::MYHLT" );
@@ -661,26 +658,28 @@ void HLTEffAnalyzer(
             vector<Object> hltL1fL1sMu22or25L1Filtered0 = nt->get_HLTObjects( "hltL1fL1sMu22or25L1Filtered0::MYHLT" );
             vector<Object> hltL3fL1sMu22Or25L1f0L2f10QL3Filtered50Q = nt->get_HLTObjects( "hltL3fL1sMu22Or25L1f0L2f10QL3Filtered50Q::MYHLT" );
 
+            // FIXED! USE L1TkMuon Pt22 filtered L1TkMuons instread of hand-cut
+            //vector<Object> theL1Muons = isIterL3 ? L1Muons : L1TkMuons;
+            //vector<Object> theL1Muons_pt22 = {};
+            //for(auto& l1mu: theL1Muons) {
+            //    if(l1mu.pt > 22.0) {
+            //        if(isIterL3) {
+            //            if(l1mu.get("quality") > 11) {
+            //                theL1Muons_pt22.push_back( l1mu.clone() );
+            //            }
+            //        }
+            //        else {
+            //            theL1Muons_pt22.push_back( l1mu.clone() );
+            //        }
+            //    }
+            //}
             vector<Object> theL1Muons = isIterL3 ? L1Muons : L1TkMuons;
-            vector<Object> theL1Muons_pt22 = {};
-            for(auto& l1mu: theL1Muons) {
-                if(l1mu.pt > 22.0) {
-                    if(isIterL3) {
-                        if(l1mu.get("quality") > 11) {
-                            theL1Muons_pt22.push_back( l1mu.clone() );
-                        }
-                    }
-                    else {
-                        theL1Muons_pt22.push_back( l1mu.clone() );
-                    }
-                }
-            }
+            vector<Object> theL1Muons_pt22 = hltL1TkSingleMuFiltered22;
 
             vector<vector<Object>*> L3MuonColls_L3FromL1TkMuon {
                 &theL1Muons_pt22,
                 &L2Muons,
                 &hltPhase2L3OI,
-                &hltIter2IterL3FromL1MuonTrack,
                 &hltPhase2L3IOFromL2,
                 &hltPhase2L3IOFromL1,
                 &hltPhase2L3MuonsNoID,
@@ -693,10 +692,10 @@ void HLTEffAnalyzer(
                 &hltL3crIsoL1TkSingleMu22L3f24QL3pfhcalIsoFiltered0p40,
                 &hltL3crIsoL1TkSingleMu22L3f24QL3pfhgcalIsoFiltered4p70,
                 &hltL3crIsoL1TkSingleMu22L3f24QL3trkIsoRegionalNewFiltered0p07EcalHcalHgcalTrk,
-                &hltL1TkDoubleMuFiltered7,
-                &hltL3fL1DoubleMu155fPreFiltered8,
-                &hltDiMuon178RelTrkIsoFiltered0p4,
-                &hltDiMuon178RelTrkIsoFiltered0p4DzFiltered0p2
+                // &hltL1TkDoubleMuFiltered7,
+                // &hltL3fL1DoubleMu155fPreFiltered8,
+                // &hltDiMuon178RelTrkIsoFiltered0p4,
+                // &hltDiMuon178RelTrkIsoFiltered0p4DzFiltered0p2
             };
 
             vector<vector<Object>*> L3MuonColls_IterL3 {
@@ -711,13 +710,6 @@ void HLTEffAnalyzer(
                 &hltL1fL1sMu22or25L1Filtered0,
                 &hltL3fL1sMu22Or25L1f0L2f10QL3Filtered50Q
             };
-            
-            // DEBUG >> Print out objects per evt loop //
-            for (auto & obj : hltIter2IterL3FromL1MuonTrack) {
-                std::cout << "Evt num     : " << i_ev << std::endl;
-                std::cout << "Obj content : " << std ::endl;
-                obj.print();
-            }
 
             vector<vector<Object>*> L3MuonColls = isIterL3 ? L3MuonColls_IterL3 : L3MuonColls_L3FromL1TkMuon;
 
@@ -884,6 +876,7 @@ void HLTEffAnalyzer(
                     }
 
                     // -- Iso / L3
+                    /*
                     if( i == L3_type_iso && matched_L1Muon && matched_idx > -1 && !isIterL3 ) {
 
                         Object mu  = L3Coll->at(matched_idx).clone();
@@ -958,6 +951,7 @@ void HLTEffAnalyzer(
                             }
                         }
                     }
+                    */
                 }
             }
 
@@ -1006,6 +1000,7 @@ void HLTEffAnalyzer(
             }
         }
 
+        /*
         if(!isIterL3) {
             f_output->cd();
             TDirectory* dir2 = f_output->mkdir("Iso");
@@ -1021,6 +1016,7 @@ void HLTEffAnalyzer(
                 delete hc_IsoRelTO.at(i);
             }
         }
+        */
 
         f_output->cd();
         f_output->Close();
